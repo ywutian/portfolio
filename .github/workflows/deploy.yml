@@ -8,10 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
-    defaults:
-      run:
-        working-directory: ./portfolio  # 指定到 portfolio 目录
 
     steps:
       - name: Checkout
@@ -21,18 +17,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: './portfolio/package-lock.json'
-
-      - name: List files
-        run: ls -la  # 调试用，查看文件结构
 
       - name: Install Dependencies
-        run: |
-          pwd  # 显示当前工作目录
-          npm install
+        working-directory: ./portfolio
+        run: npm install
 
       - name: Build
+        working-directory: ./portfolio
         run: npm run build
         env:
           CI: false
