@@ -11,7 +11,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: ./portfolio  # 指定工作目录
+        working-directory: ./portfolio  # 指定到 portfolio 目录
 
     steps:
       - name: Checkout
@@ -24,16 +24,21 @@ jobs:
           cache: 'npm'
           cache-dependency-path: './portfolio/package-lock.json'
 
+      - name: List files
+        run: ls -la  # 调试用，查看文件结构
+
       - name: Install Dependencies
-        run: npm install
+        run: |
+          pwd  # 显示当前工作目录
+          npm install
 
       - name: Build
         run: npm run build
         env:
-          CI: false  # 防止将警告视为错误
+          CI: false
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: portfolio/build  # 修改构建输出目录
+          folder: portfolio/build
           branch: gh-pages 

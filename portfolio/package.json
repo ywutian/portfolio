@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "homepage": "https://[你的GitHub用户名].github.io/portfolio",
+  "homepage": "https://ywutian.github.io/resume-website",
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
