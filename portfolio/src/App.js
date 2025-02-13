@@ -33,11 +33,13 @@ Featured projects include mobile applications for social exploration and real-wo
 Through these projects, I've developed expertise in both mobile (Flutter) and web (Next.js) development, with a strong focus on AI integration and scalable cloud architecture.`
   };
 
+  const videoPath = process.env.PUBLIC_URL + '/videos/';
+
   const projects = [
     {
       id: 1,
       title: "AI Exploration Companion",
-      video: "/videos/app1-demo.mp4",
+      video: videoPath + "app1-demo.mp4",
       description: `Our app enhances real-world exploration through AI-driven features and gamification.
 
 Key Features:
@@ -68,7 +70,7 @@ Tech Stack: Flutter, Firebase, Kotlin, AI`,
     {
       id: 2,
       title: "AI Social Explorer",
-      video: "/videos/app2-demo.mp4",
+      video: videoPath + "app2-demo.mp4",
       description: `An AI-powered social exploration app that encourages users to discover new places and engage in meaningful interactions.
 
 Key Features:
@@ -97,7 +99,7 @@ Tech Stack: Flutter, OpenAI, Google Cloud, Mapbox`,
     {
       id: 3,
       title: "AI Meeting & Class Notes Assistant",
-      video: "/videos/web-demo.mp4",
+      video: videoPath + "web-demo.mp4",
       description: `A powerful AI-driven note-taking platform that transforms meetings and lectures into structured notes through real-time transcription and intelligent processing.
 
 Key Features:
@@ -313,7 +315,7 @@ Core Features
           <div className="project-item" style={{"--index": 0}}>
             <div className="video-container mobile">
               <video controls>
-                <source src="/videos/app1-demo.mp4" type="video/mp4" />
+                <source src={videoPath + "app1-demo.mp4"} type="video/mp4" />
               </video>
             </div>
             <div className="project-description">
@@ -338,7 +340,7 @@ Core Features
           <div className="project-item" style={{"--index": 1}}>
             <div className="video-container mobile">
               <video controls>
-                <source src="/videos/app2-demo.mp4" type="video/mp4" />
+                <source src={videoPath + "app2-demo.mp4"} type="video/mp4" />
               </video>
             </div>
             <div className="project-description">
@@ -373,7 +375,7 @@ Core Features
             >
               <div className={`video-container ${project.type}`}>
                 <video controls>
-                  <source src={project.video} type="video/mp4" />
+                  <source src={videoPath + project.video} type="video/mp4" />
                 </video>
               </div>
               <div className="project-description">

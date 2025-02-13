@@ -26,7 +26,7 @@ jobs:
         working-directory: ./portfolio
         run: npm run build
         env:
-          CI: false
+          PUBLIC_URL: https://ywutian.github.io/resume-website
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
