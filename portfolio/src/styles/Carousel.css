@@ -1,0 +1,40 @@
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  padding: 1rem;
+}
+
+.carousel-btn {
+  background: transparent;
+  border: none;
+  color: #00ff9d;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    max-width: 250px;
+  }
+} 
