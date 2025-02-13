@@ -18,8 +18,11 @@ jobs:
         with:
           node-version: '18'
           
-      - name: Install Dependencies
-        run: npm install
+      - name: Clean Install Dependencies
+        run: |
+          rm -rf node_modules
+          npm cache clean --force
+          npm install
           
       - name: Build
         run: npm run build
