@@ -19,17 +19,13 @@ jobs:
           node-version: '18'
           
       - name: Install Dependencies
-        run: |
-          cd portfolio
-          npm install
+        run: npm install
           
       - name: Build
-        run: |
-          cd portfolio
-          npm run build
+        run: npm run build
           
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: portfolio/build
+          folder: build
           branch: gh-pages 
