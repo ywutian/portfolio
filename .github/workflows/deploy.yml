@@ -8,6 +8,11 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./portfolio  # 指定工作目录
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -16,15 +21,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: './portfolio/package-lock.json'
 
       - name: Install Dependencies
         run: npm install
 
       - name: Build
         run: npm run build
+        env:
+          CI: false  # 防止将警告视为错误
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: portfolio/build  # 修改构建输出目录
           branch: gh-pages 
