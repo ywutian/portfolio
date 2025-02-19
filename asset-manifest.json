@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "https://ywutian.github.io/portfolio/static/css/main.58318971.css",
-    "main.js": "https://ywutian.github.io/portfolio/static/js/main.787f4734.js",
-    "index.html": "https://ywutian.github.io/portfolio/index.html",
-    "main.58318971.css.map": "https://ywutian.github.io/portfolio/static/css/main.58318971.css.map",
-    "main.787f4734.js.map": "https://ywutian.github.io/portfolio/static/js/main.787f4734.js.map"
+    "main.css": "/portfolio/static/css/main.58318971.css",
+    "main.js": "/portfolio/static/js/main.2801a7d5.js",
+    "index.html": "/portfolio/index.html",
+    "main.58318971.css.map": "/portfolio/static/css/main.58318971.css.map",
+    "main.2801a7d5.js.map": "/portfolio/static/js/main.2801a7d5.js.map"
   },
   "entrypoints": [
     "static/css/main.58318971.css",
-    "static/js/main.787f4734.js"
+    "static/js/main.2801a7d5.js"
   ]
 }
