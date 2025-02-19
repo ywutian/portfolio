@@ -283,6 +283,40 @@ Core Features
     }
   };
 
+  const buttonContainerStyle = {
+    display: 'flex', 
+    gap: '15px',
+    marginTop: '20px',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
+  };
+
+  const commonButtonStyle = {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minWidth: '140px',
+    height: '42px',
+    padding: '0 24px',
+    fontSize: '15px',
+    fontWeight: '500',
+    boxSizing: 'border-box',
+    border: '1px solid #e0e0e0',
+    borderRadius: '6px',
+    backgroundColor: '#fff',
+    color: '#2196F3',
+    textDecoration: 'none',
+    cursor: 'pointer',
+    margin: 0,
+    transition: 'all 0.2s ease',
+    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+    '&:hover': {
+      backgroundColor: '#f5f5f5',
+      borderColor: '#2196F3',
+      boxShadow: '0 2px 5px rgba(0,0,0,0.15)'
+    }
+  };
+
   return (
     <div className="content">
       <nav className="nav-bar">
@@ -373,27 +407,99 @@ Core Features
               className="project-item"
               style={{"--index": index + 2}}
             >
-              <div className={`video-container ${project.type}`}>
+              <div className={`video-container ${project.type}`} style={{ position: 'relative' }}>
                 <video controls>
-                  <source src={videoPath + project.video} type="video/mp4" />
+                  <source src={process.env.PUBLIC_URL + "/videos/web-demo.mp4"} type="video/mp4" />
                 </video>
+                <a 
+                  href="https://d3a5oz43hbtqzi.cloudfront.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    position: 'absolute',
+                    bottom: '20px',
+                    right: '20px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    color: 'white',
+                    padding: '8px 16px',
+                    borderRadius: '4px',
+                    textDecoration: 'none',
+                    fontSize: '14px',
+                    zIndex: 10,
+                    cursor: 'pointer',
+                    transition: 'background-color 0.3s'
+                  }}
+                  onMouseOver={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.9)'}
+                  onMouseOut={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'}
+                >
+                  Visit Website
+                </a>
               </div>
               <div className="project-description">
                 <h2>{project.title}</h2>
+                <div style={{
+                  marginBottom: '15px',
+                  color: '#666',
+                  fontSize: '14px'
+                }}>
+                  Demo URL: <a 
+                    href="https://d3a5oz43hbtqzi.cloudfront.net/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: '#2196F3',
+                      textDecoration: 'none'
+                    }}
+                    onMouseOver={(e) => e.target.style.textDecoration = 'underline'}
+                    onMouseOut={(e) => e.target.style.textDecoration = 'none'}
+                  >
+                    https://d3a5oz43hbtqzi.cloudfront.net/
+                  </a>
+                </div>
                 <pre className="description-text">{project.description}</pre>
                 <div className="tech-stack">
                   {project.techStack?.map(tech => (
                     <span key={tech} className="tech-tag">{tech}</span>
                   ))}
                 </div>
-                {projectDetails[project.id] && (
-                  <button 
-                    className="detail-btn"
-                    onClick={() => setSelectedProject(project.id)}
+                <div style={buttonContainerStyle}>
+                  <a 
+                    href="https://d3a5oz43hbtqzi.cloudfront.net/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{...commonButtonStyle}}
+                    onMouseOver={(e) => {
+                      e.target.style.backgroundColor = '#f5f5f5';
+                      e.target.style.borderColor = '#2196F3';
+                      e.target.style.boxShadow = '0 2px 5px rgba(0,0,0,0.15)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.backgroundColor = '#fff';
+                      e.target.style.borderColor = '#e0e0e0';
+                      e.target.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+                    }}
                   >
-                    View Details
-                  </button>
-                )}
+                    Visit Live Demo
+                  </a>
+                  {projectDetails[project.id] && (
+                    <button 
+                      onClick={() => setSelectedProject(project.id)}
+                      style={{...commonButtonStyle}}
+                      onMouseOver={(e) => {
+                        e.target.style.backgroundColor = '#f5f5f5';
+                        e.target.style.borderColor = '#2196F3';
+                        e.target.style.boxShadow = '0 2px 5px rgba(0,0,0,0.15)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.backgroundColor = '#fff';
+                        e.target.style.borderColor = '#e0e0e0';
+                        e.target.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+                      }}
+                    >
+                      View Details
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           ))}

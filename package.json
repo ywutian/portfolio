@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "PUBLIC_URL=https://ywutian.github.io/portfolio npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -48,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "alias": {
+    "@videos": "./src/videos"
   }
 }
